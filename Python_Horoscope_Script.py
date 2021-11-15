@@ -44,3 +44,4 @@ print('Color:', json.get('color'))
 print('Lucky Number:', json.get('lucky_number'))
 print('Lucky Time:', json.get('lucky_time'),"\n")
 
+input('Press ENTER to exit')
