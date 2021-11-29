@@ -44,3 +44,5 @@ if month in months:
         sign = "Aquarius" if (day < 19) else "Pisces"
 
 print ("Your zodiac sign is " + sign + ".")
+
+input('Press ENTER to exit')
