@@ -1,0 +1,92 @@
+import requests
+import json
+
+import tkinter as tk
+from tkinter import *
+from PIL import Image, ImageTk
+import subprocess
+
+root =tk.Tk()
+root.title('Fortune Teller')
+
+canvas = tk.Canvas(root, width=550, height=300)
+canvas.grid(columnspan=3, rowspan=3)
+
+
+#logo
+logo = Image.open('icon.png')
+logo = ImageTk.PhotoImage(logo)
+logo_label = tk.Label(image = logo)
+logo_label.image = logo
+logo_label.grid(column=1, row=0)
+
+
+#instructions
+instructions = tk.Label(root, text = "What is your destiny?", font="FinkHeavy")
+instructions.grid(columnspan=3, column=0, row=1)
+
+#area
+canvas = tk.Canvas(root, width=600, height=200)
+canvas.grid(columnspan=3)
+
+#drop down boxes
+
+#data
+data={
+     "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces",
+    }
+
+#updates text
+def boxtext(new_value):
+    display.config(text = data[new_value])
+
+#create a dropdown list for zodiac sign
+var =StringVar()
+var.set('Aries')
+p = OptionMenu(root, var, *data, command=boxtext)
+p.grid(column=1, row=2)
+
+display = Label(root)
+
+#create a dropdown list for day
+data_sign={
+     "Yesterday", "Today", "Tomorrow",
+    }
+
+def boxtext2(new_value):
+    display.config(text = data_sign[new_value])
+
+var2 =StringVar()
+var2.set('Today')
+p = OptionMenu(root, var2, *data_sign, command=boxtext2)
+p.grid(column=1, row=3)
+
+#Function
+
+#Get Sign
+sign = input("Please Enter Your Zodiac Sign (Aries, Taurus, Gemini, Cancer, Leo, Virgo, Libra, Scorpio, Sagittarius, Capricorn, Aquarius or Pisces): ")
+
+#Get Horoscope Day of Choice
+day = input("Please Enter Day of Choice: (Yesterday, Today, or Tomorrow): ")
+
+#parameter for HTTP request
+params = (
+
+    ("sign", sign),
+    ("day", day))
+
+
+#make request
+response = requests.post('https://aztro.sameerkumar.website/', params =params)
+json = response.json()
+
+#what to print
+print("\nHoroscope for",json.get('current_date'), "\n")
+print(json.get('description'), '\n')
+print('Compatibility:',json.get('compatibility'))
+print('Mood:', json.get('mood'))
+print('Color:', json.get('color'))
+print('Lucky Number:', json.get('lucky_number'))
+print('Lucky Time:', json.get('lucky_time'),"\n")
+
+root.mainloop()
