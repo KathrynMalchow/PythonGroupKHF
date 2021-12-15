@@ -1,9 +1,13 @@
 # PythonGroupKHF
 
 
-## A Horoscope Fortune Teller GUI 
+### A Horoscope Fortune Teller GUI 
+Kathryn Malchow <br />
+Hyebin Hong <br />
+Francisco Almeida
 
-### References:
+
+#### References:
 
 Galli, K. [Keith Galli]. (2019, February 2). How to Program a GUI Application (with Python Tkinter)! [Video]. YouTube. https://www.youtube.com/watch?v=D8-snVfekto
 
