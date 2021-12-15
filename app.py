@@ -47,6 +47,12 @@ d.grid(column=1, row=3)
 
 #function to format response
 def content(json):
+    """Calls aspects of horoscope from API and formats them into an answer
+    Args:
+        get_horoscope function variable
+    Returns:
+        final_sr horoscope paragraph
+    """
     date = json.get('current_date')
     descr = json.get('description')
     compat = json.get('compatibility')
@@ -61,6 +67,14 @@ def content(json):
 
 #use API as function
 def get_horoscope(sign, day):
+    """Sends an HTTP resquest to Aztro API
+    Args:
+        params
+        request.post url
+        response.json
+    Returns:
+        variable named json that represents user's selection of sign and day
+    """
     #parameter for HTTP request
     params = (
     ("sign", sign),
