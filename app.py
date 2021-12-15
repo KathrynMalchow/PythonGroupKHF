@@ -82,14 +82,7 @@ def get_horoscope(sign, day):
     #make request
     response = requests.post('https://aztro.sameerkumar.website/', params =params)
     json = response.json()
-    #what to print
-    #print("\nHoroscope for",json.get('current_date'), "\n")
-    #print(json.get('description'), '\n')
-    #print('Compatibility:',json.get('compatibility'))
-    #print('Mood:', json.get('mood'))
-    #print('Color:', json.get('color'))
-    #print('Lucky Number:', json.get('lucky_number'))
-    #print('Lucky Time:', json.get('lucky_time'),"\n")
+
 
     #text box
     text_box = tk.Text(root, height=10, width=50, padx=15, pady=15)
