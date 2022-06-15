@@ -1,10 +1,8 @@
 # PythonGroupKHF
 
 
-### A Horoscope Fortune Teller GUI 
-Kathryn Malchow <br />
-Hyebin Hong <br />
-Francisco Almeida
+### Horoscope Fortune Teller GUI with Python
+
 
 
 #### References:
